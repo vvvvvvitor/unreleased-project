@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs5064ukmtv0a"]
+
+[ext_resource type="Texture2D" uid="uid://cf46f801ruf2k" path="res://src/data/sprites/smoke-small.png" id="1_qdegc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si2li"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vc8v7"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 10, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+
+[node name="Smoke" type="GPUParticles2D"]
+z_index = 1
+material = SubResource("CanvasItemMaterial_si2li")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_vc8v7")
+texture = ExtResource("1_qdegc")
+one_shot = true
+explosiveness = 1.0
+draw_order = 0

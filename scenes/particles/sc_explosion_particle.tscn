@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://csgtdpfh7x5bd"]
+
+[ext_resource type="Texture2D" uid="uid://cwy4c2hiowaf3" path="res://src/data/sprites/explosion-sheet.png" id="1_kekxo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kr5bp"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_l8eyj"]
+_data = [Vector2(0, 0), 0.0, 5.87185, 0, 0, Vector2(0.906393, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.86929, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kuwst"]
+curve = SubResource("Curve_l8eyj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_67rio"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 355.0
+scale_curve = SubResource("CurveTexture_kuwst")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="ExplosionParticle" type="GPUParticles2D"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_kr5bp")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_67rio")
+texture = ExtResource("1_kekxo")
+lifetime = 0.5
+one_shot = true

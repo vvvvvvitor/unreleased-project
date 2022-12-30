@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://fxsa15j55f2w"]
+
+[ext_resource type="Script" path="res://src/bomb.gd" id="1_vpp3f"]
+[ext_resource type="Texture2D" uid="uid://b2gnhq50yp0pb" path="res://src/data/sprites/ticking-small-bomb.png" id="2_868ll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pyhs"]
+size = Vector2(5, 5)
+
+[node name="TickingBomb" type="CharacterBody2D"]
+position = Vector2(26, 242)
+collision_layer = 8
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_max_angle = 1.5708
+floor_snap_length = 0.0
+script = ExtResource("1_vpp3f")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+texture = ExtResource("2_868ll")
+centered = false
+hframes = 2
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_5pyhs")
+
+[node name="Area2D" type="Area2D" parent="."]

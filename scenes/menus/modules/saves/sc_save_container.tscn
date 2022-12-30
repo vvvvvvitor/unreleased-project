@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddolbgicjsd45"]
+
+[ext_resource type="Script" path="res://src/nodes/gd_save_container.gd" id="1_nwu7t"]
+[ext_resource type="Script" path="res://src/nodes/file_button.gd" id="2_50uj5"]
+[ext_resource type="Script" path="res://src/nodes/file_name.gd" id="3_nhhqm"]
+[ext_resource type="Texture2D" uid="uid://jkm54oygy5ny" path="res://src/data/sprites/trash_icon.png" id="3_ypsyw"]
+[ext_resource type="Texture2D" uid="uid://ddesillhpe20p" path="res://src/data/sprites/skull_icon.png" id="4_ajbfe"]
+[ext_resource type="Script" path="res://src/nodes/gd_remove_btn.gd" id="4_nhc7q"]
+
+[node name="SaveContainer" type="HBoxContainer"]
+script = ExtResource("1_nwu7t")
+
+[node name="SaveButton" type="Button" parent="."]
+offset_right = 94.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "save_name"
+script = ExtResource("2_50uj5")
+
+[node name="FileName" type="LineEdit" parent="SaveButton"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "File name..."
+max_length = 16
+script = ExtResource("3_nhhqm")
+
+[node name="DeathCountContainer" type="HBoxContainer" parent="."]
+offset_left = 98.0
+offset_right = 120.0
+offset_bottom = 31.0
+
+[node name="TextureRect" type="TextureRect" parent="DeathCountContainer"]
+custom_minimum_size = Vector2(8, 0)
+offset_right = 8.0
+offset_bottom = 31.0
+texture = ExtResource("4_ajbfe")
+stretch_mode = 5
+
+[node name="DeathCount" type="Label" parent="DeathCountContainer"]
+offset_left = 12.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 28.0
+text = "0"
+
+[node name="RemoveBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(16, 0)
+offset_left = 124.0
+offset_right = 140.0
+offset_bottom = 31.0
+script = ExtResource("4_nhc7q")
+
+[node name="MarginContainer" type="MarginContainer" parent="RemoveBtn"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="RemoveBtn/MarginContainer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 12.0
+offset_bottom = 27.0
+texture = ExtResource("3_ypsyw")
+ignore_texture_size = true
+stretch_mode = 5

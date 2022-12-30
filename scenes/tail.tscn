@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg7bp26ohsr8v"]
+
+[ext_resource type="Texture2D" uid="uid://cbjg0cvbv1yg4" path="res://src/data/sprites/tail-part.png" id="1_ijmob"]
+[ext_resource type="Script" path="res://src/rope.gd" id="2_xdhc6"]
+
+[node name="Tail" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_ijmob")
+hframes = 4
+script = ExtResource("2_xdhc6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" node_paths=PackedStringArray("adjacent")]
+z_index = -1
+texture = ExtResource("1_ijmob")
+hframes = 4
+frame = 1
+script = ExtResource("2_xdhc6")
+adjacent = NodePath("")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Sprite2D2" node_paths=PackedStringArray("adjacent")]
+z_index = -1
+texture = ExtResource("1_ijmob")
+hframes = 4
+frame = 2
+script = ExtResource("2_xdhc6")
+adjacent = NodePath("")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Sprite2D2/Sprite2D3" node_paths=PackedStringArray("adjacent")]
+z_index = -2
+position = Vector2(-1, 1)
+texture = ExtResource("1_ijmob")
+hframes = 4
+frame = 3
+script = ExtResource("2_xdhc6")
+adjacent = NodePath("")

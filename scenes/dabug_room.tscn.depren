@@ -1,0 +1,10 @@
+[gd_scene load_steps=27 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bnpc002lliwj8" path="res://scenes/player.tscn" id="1_1ihy7"]
+[ext_resource type="PackedScene" uid="uid://cutvsldo3xx05" path="res://scenes/camera.tscn" id="2_pl8gw"]
+[ext_resource type="Material" path="res://src/data/mat_sway.tres" id="5_46n7u"]
+[ext_resource type="Texture2D" uid="uid://cc8tgff4byptf" path="res://src/data/sprites/special.png" id="6_fwfoy"]
+[ext_resource type="Texture2D" uid="uid://cqgbsvir15yg4" path="res://src/data/sprites/checker-tiles.png" id="6_w2cps"]
+[ext_resource type="FontFile" uid="uid://cjdsdvu4afj2r" path="res://src/data/fonts/m6x11.ttf" id="7_414ou"]
+[ext_resource type="Texture2D" uid="uid://cd8hph3xmvxar" path="res://src/data/sprites/checker_back.png" id="7_ixfuf"]
+[ext_resource type="Script" path="res://src/nodes/classes/zone.gd" id="8_p4rl3"]

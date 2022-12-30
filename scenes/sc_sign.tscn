@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1ynn3mtivdeo"]
+
+[ext_resource type="Script" path="res://src/nodes/gd_sign.gd" id="1_od1t6"]
+[ext_resource type="Texture2D" uid="uid://dk2osrhxkr4ej" path="res://src/data/sprites/sign.png" id="2_pu8qe"]
+[ext_resource type="Script" path="res://src/nodes/classes/text_box.gd" id="3_lf5le"]
+[ext_resource type="FontFile" uid="uid://bfgmhpfe3m6fp" path="res://src/data/fonts/monogram.ttf" id="4_j8f68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_heyer"]
+size = Vector2(64, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwqlo"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_ieo8u"]
+default_font = ExtResource("4_j8f68")
+Panel/styles/panel = SubResource("StyleBoxFlat_vwqlo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7127j"]
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_od1t6")
+prompts = ["Welcome to this demo!", "How did you get here?"]
+
+[node name="SignSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pu8qe")
+offset = Vector2(0, -8)
+
+[node name="Area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_heyer")
+
+[node name="TextBox" type="Node2D" parent="."]
+process_priority = -1
+position = Vector2(0, -48)
+script = ExtResource("3_lf5le")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="TextBox"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_ieo8u")
+
+[node name="Panel" type="Panel" parent="TextBox/ReferenceRect"]
+show_behind_parent = true
+custom_minimum_size = Vector2(128, 32)
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox/ReferenceRect/Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="TextBox/ReferenceRect/Panel/MarginContainer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 28.0
+size_flags_vertical = 1
+text = "Lorem"
+label_settings = SubResource("LabelSettings_7127j")
+horizontal_alignment = 1
+autowrap_mode = 2
